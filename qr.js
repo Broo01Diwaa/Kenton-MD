@@ -1,9 +1,9 @@
 const chalk = require('chalk');
 const {WAConnection, MessageOptions, MessageType, Mimetype} = require('@adiwajshing/baileys');
-const {StringSession} = require('./sanuwabot/');
+const {StringSession} = require('./diwaabot/');
 const fs = require('fs');
 
-async function botsanuwa () {
+async function botdiwaa () {
     const conn = new WAConnection();
     const Session = new StringSession();  
     conn.version = [3, 3234, 9]
@@ -12,7 +12,7 @@ async function botsanuwa () {
 
     conn.on('connecting', async () => {
         console.log(`${chalk.green.bold('Whats')}${chalk.blue.bold('Asena')}
-${chalk.white.italic('Botsanuwa Sting session')}
+${chalk.white.italic('Botdiwaa Sting session')}
 ${chalk.blue.italic('ℹ️  Connecting to Whatsapp... Please Wait.')}`);
     });
     conn.on('open', async () => {
@@ -22,11 +22,11 @@ ${chalk.blue.italic('ℹ️  Connecting to Whatsapp... Please Wait.')}`);
         );
 
         if (!fs.existsSync('config.env')) {
-            fs.writeFileSync('config.env', `BOTSANUWA_SESSION="${st}"`);
+            fs.writeFileSync('config.env', `BOTDIWAA_SESSION="${st}"`);
         }
         console.log(conn.user.jid.startsWith('90') || conn.user.jid.startsWith('94') ? 'meka katawath denna epa ' + conn.user.name : 'Dont Share This Code to Anyone ' + conn.user.name)
         process.exit(0);
     });
     await conn.connect();
 }
-botsanuwa()
+botdiwaa()
